@@ -1,21 +1,164 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>amujoe</title>
-	<link rel="stylesheet" href="">
-	<style type="text/css" media="screen">
-		h1{width:100%;padding:30px 0;text-align:center;color:red;}
-		h2{color:green;text-align:center;}
-	</style>
-</head>
+ <head>
+    <meta charset="UTF-8">
+    <title>amujoe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
 <body>
+<!--main body-->
+<section class="mainBody">	
+	<!--header-->
+	<section class="header active">
+		<div class="banner">
+			<h1 class="f_tac" id='fade'>我是<span class="a">阿</span><span class="m">木</span></h1>
+		</div>
+	</section>
+	<!--header end-->
+	<!--content-->
+	<section class="content">
+		<div class="row des row-left">
+			<div class="pct50 f_fl">
+				<div class="txtCon txtOne">
+					<hr />
+					<h2>我学了设计，但又不做设计</h2>
+					<h3>与其说设计让我爱上了绘画，不如说爱上了绘画，才开始的设计；设计对我来说，它游走在身边、埋藏于心间，却消失在工作中。我只做我自己的设计师...</h3>
+					<h4>/设计</h4>
+				</div>
+				<div class="txtCon txtTwo">
+					<hr />
+					<h2>一切的开始都源于喜欢</h2>
+					<h3>放弃拥有的成就，需要的是勇气。追寻内心的感觉，需要的是动力。而接触到你的那一刻，是那么地执着，那么的坚定，即使被别人不看好，即使自己有时自己也会怀疑...</h3>
+					<!--<h3>工作一年之后才接触的前端，那会还没有前端工程师这个职位，那会正迷恋着H5，那会还不会写Js，也就在那会我决定做一名前端工程师...</h3>-->
+					<h4>/喜欢</h4>
+				</div>
+			</div>
+			<div class="pct50 f_fl">
+				<div class="picOne f_pr">
+					<div class="oneDown" id="oneDown"><img src="images/pic01.jpg"/></div>
+					<div class="oneUp" id="oneUp"><img src="images/pic02.jpg"/></div>
+				</div>
+			</div>
+		</div>
+		<div class="row web">
+			<div class="pct50 f_fr">
+				<div class="txtCon txtThree">
+					<hr />
+					<h2>会前端和会前端不是个概念</h2>
+					<h3>中国的文字博大精深，会就是会，会又不一定就真会！同时也不得不感叹前端技术发展真是神速，那几乎不是继承式的迭代，而是一次又一次的变革，一次又一次的创造...</h3>
+					<h4>/前端</h4>
+				</div>
+			</div>
+			<div class="pct50 f_fr">
+				<div class="picTwo f_pr" id="picTwo">
+					<ul class="f_df f_jcc">
+						<li id="two01"><i><img src="images/icon01.png"/></i><span>走一走</span></li>
+						<li id="two02"><i><img src="images/icon02.png"/></i><span>看一看</span></li>
+						<li id="two03"><i><img src="images/icon03.png"/></i><span>来过路过</span></li>
+						<li id="two04"><i><img src="images/icon04.png"/></i><span>不要错过</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row code row-left">
+			<div class="pct50 f_fl">
+				<div class="txtCon txtThr">
+					<hr />
+					<h2>来过，才知道真相，做过，才懂得不属于我</h2>
+					<h3>我不知道我是什么时候学会的打麻将，只知道从小就跟着老妈去搓麻。程序堆里混久了，也学了那么一丁点的小知识...</h3>
+					<h4>/程序</h4>
+				</div>
+			</div>
+			<div class="pct50 f_fl picThree">
+					<div class="pTh" id="picTh"><img src="images/pic03.jpg"/></div>
+			</div>
+		</div>
+		<div class="fotBox">
+			<div class="f_t_more">
+				<h2>关于阿木，你还想了解更多？</h2>
+				<i><img src="images/ewm.jpg"/></i>
+			</div>
+		</div>
+	</section>
+	<!--content end-->
+</section>
+<!--main body end-->
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.slim.js"></script>
+<script type="text/javascript">
+var bH,winPos,oneDown,oneUp,picTwo,picTh;
+$(function(){
+	bH=$(window).height();
+	$('.header').css('height',bH*2);
+	$('.banner').css('height',bH);
 	
-<h1>I'm joe</h1>
-<h2>this page about.html</h2>
-<br>
-<br>
-now,you can go <a href="index.html" title="index.html">index.html</a>
+	oneDown=$("#oneDown").offset().top+bH;
+	oneUp=$("#oneUp").offset().top+bH;
+	picTwo=$("#picTwo").offset().top+bH-200;
+	picTh=$("#picTh").offset().top+bH;
+})
+$(window).scroll(function(event){
+	winPos = $(window).scrollTop();
+	var ban = $(".header").hasClass("active");
+	console.log(winPos);
+
+	if(winPos>=bH && ban){
+		$(".header").removeClass("active").css("height",bH);
+		$(".content").addClass("active");		
+	}else if(winPos <=bH && !ban){
+		$(".header").addClass("active").css("height",2*bH);
+		$(".content").removeClass("active");	
+	}
+	
+	scoll("oneDown",oneDown,350,0.2,'y',false);
+	scoll("oneUp",oneUp,400,0.1,'y',false);
+	
+	scoll("two01",picTwo,800,0.3,'y',true);
+	scoll("two02",picTwo,600,0.2,'y',true);
+	scoll("two03",picTwo,400,0.15,'y',true);
+	scoll("two04",picTwo,200,0.1,'y',true);
+
+	scoll("picTh",picTh,500,0.15,'y',false);
+    });
+//id名称，id距顶部距离，移动范围，移动速度，移动方向(默认Y)，正反方向(默认是向下 向右)
+function scoll(idn,top,num,speed,xOrY,tOrF){
+	var t=top-num,//开始位置
+		d=top+num,//结束位置
+		dirX= xOrY=='X' || xOrY =="x"?true:false,//x
+		l= tOrF?(top-winPos)*speed:(winPos-top)*speed;
+		
+		//console.log("tran:"+l +" winp: "+winPos +" oneD :"+top);
+		
+		if(dirX){
+			$("#"+idn).css({"transform":"translate3d("+l+"px, 0px,0px)"});
+			if(winPos >= t && winPos <= d){
+				$("#"+idn).css({"line-height":l+"px","transform":"translate3d("+l+"px, 0px,0px)"});
+			}else if(winPos < t){
+				var mr= tOrF? (num*speed) :-(num*speed);
+				$("#"+idn).css({"transform":"translate3d("+mr+"px, 0px,0px)"});
+			}else if(winPos > d){
+				var mr= tOrF? -(num*speed) :(num*speed);
+				$("#"+idn).css({"transform":"translate3d("+mr+"px, 0px,0px)"});
+			}
+		}else{
+			
+			if(winPos >= t && winPos <= d){
+				$("#"+idn).css({"line-height":l+"px","transform":"translate3d(0px,"+l+"px, 0px)"});
+			}else if(winPos < t){
+				var mr= tOrF? (num*speed) :-(num*speed);
+				$("#"+idn).css({"transform":"translate3d(0px,"+mr+"px, 0px)"});
+			}else if(winPos > d){
+				var mr= tOrF? -(num*speed) :(num*speed);
+				$("#"+idn).css({"transform":"translate3d(0px,"+mr+"px, 0px)"});
+			}
+		}	
+}
+</script>
+
 </body>
 </html>
+
+  
